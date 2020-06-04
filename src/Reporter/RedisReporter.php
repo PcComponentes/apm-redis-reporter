@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 namespace PcComponentes\ElasticAPM\Reporter;
 
+use PcComponentes\ElasticAPM\Utils\Compressor;
 use Predis\Client;
 use ZoiloMora\ElasticAPM\Reporter\Reporter;
 
-final class RedisReporter implements Reporter
+class RedisReporter implements Reporter
 {
     private Client $redis;
     private string $key;

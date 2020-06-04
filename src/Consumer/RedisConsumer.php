@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace PcComponentes\ElasticAPM\Reporter;
+namespace PcComponentes\ElasticAPM\Consumer;
 
+use PcComponentes\ElasticAPM\Utils\Compressor;
 use Predis\Client;
 
 final class RedisConsumer
@@ -18,7 +19,7 @@ final class RedisConsumer
         $this->timeout = $timeout;
     }
 
-    public function consumeOneAndRemove(): array
+    public function consume(): array
     {
         $items = $this->redis->blpop(
             [
