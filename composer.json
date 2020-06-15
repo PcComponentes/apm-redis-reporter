@@ -15,7 +15,7 @@
     }
   },
   "require": {
-    "php": "^7.0",
+    "php": ">=7.0",
     "ext-json": "*",
     "ext-zlib": "*",
     "zoilomora/elastic-apm-agent-php": "^0.1",
