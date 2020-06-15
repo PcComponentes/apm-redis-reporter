@@ -1,5 +1,5 @@
  
-FROM php:7.4-cli-alpine3.11
+FROM php:7.0-cli-alpine3.7
 
 RUN apk add --no-cache \
         libzip-dev \

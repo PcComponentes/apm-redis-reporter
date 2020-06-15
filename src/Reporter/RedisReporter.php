@@ -7,10 +7,10 @@ use PcComponentes\ElasticAPM\Utils\Compressor;
 use Predis\Client;
 use ZoiloMora\ElasticAPM\Reporter\Reporter;
 
-class RedisReporter implements Reporter
+final class RedisReporter implements Reporter
 {
-    private Client $redis;
-    private string $key;
+    private $redis;
+    private $key;
 
     public function __construct(Client $redis, string $key)
     {
@@ -24,9 +24,9 @@ class RedisReporter implements Reporter
             $this->key,
             [
                 Compressor::zip(
-                    \json_encode($events),
+                    \json_encode($events)
                 ),
-            ],
+            ]
         );
     }
 }

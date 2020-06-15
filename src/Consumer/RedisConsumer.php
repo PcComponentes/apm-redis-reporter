@@ -8,9 +8,9 @@ use Predis\Client;
 
 final class RedisConsumer
 {
-    private Client $redis;
-    private string $key;
-    private int $timeout;
+    private $redis;
+    private $key;
+    private $timeout;
 
     public function __construct(Client $redis, string $key, int $timeout = 15)
     {
@@ -25,11 +25,11 @@ final class RedisConsumer
             [
                 $this->key,
             ],
-            $this->timeout,
+            $this->timeout
         );
 
         return \json_decode(
-            Compressor::unzip($items[1]),
+            Compressor::unzip($items[1])
         );
     }
 }
