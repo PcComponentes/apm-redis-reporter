@@ -28,6 +28,10 @@ final class RedisConsumer
             $this->timeout
         );
 
+        if (false === \array_key_exists(1, $items)) {
+            return [];
+        }
+
         return \json_decode(
             Compressor::unzip($items[1])
         );
