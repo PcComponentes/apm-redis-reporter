@@ -28,6 +28,10 @@ final class RedisConsumer
             $this->timeout
         );
 
+        if (null === $items) {
+            return [];
+        }
+
         if (false === \array_key_exists(1, $items)) {
             return [];
         }
